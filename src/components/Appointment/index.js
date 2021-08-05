@@ -9,7 +9,9 @@ export default function Appointment(props) {
     <article className="appointment">
       <Header time={props.time}
         /* Using ternary operator version of conditional rendering makes the most sense in this case where we want to render Show or Empty based on props.interview. */
+        // Remember that our <Show /> component takes in two props: a student and an interviewer.
       />
+      {props.interview ? <Show student={props.interview.student} interviewer={props.interview.interviewer.name}/> : <Empty />}
     
     </article>
   );
