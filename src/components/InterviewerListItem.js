@@ -1,6 +1,6 @@
 import "components/InterviewerListItem.scss";
 import React from "react";
-const classNames = require('classnames/bind');
+const classNames = require('classnames');
 
 export default function InterviewerListItem(props) {
   // id, name, and avatar are the props
@@ -14,6 +14,7 @@ export default function InterviewerListItem(props) {
     <li
       className={interviewerClass}
       onClick={props.setInterviewer}
+      // onClick={() => props.setDay(props.name)}
     >
       <img
         className="interviewers__item-image"

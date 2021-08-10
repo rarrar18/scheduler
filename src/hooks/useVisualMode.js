@@ -33,4 +33,3 @@ export default function useVisualMode(initial) {
   // return an object with a mode property, and transition
   return { mode, transition, back }
 }
-
