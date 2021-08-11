@@ -57,11 +57,9 @@ export default function Appointment(props) {
     props
      .cancelInterview(props.id)
      .then(() => {
-       console.log("hello");
        transition(EMPTY);
       })
      .catch(error => {
-       console.log("hello");
        transition(ERROR_DELETE, true)
      });
   }
@@ -80,7 +78,7 @@ export default function Appointment(props) {
   // }
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment" >
       <Header time={props.time} />
       {mode === EMPTY && (
         <Empty
@@ -108,12 +106,12 @@ export default function Appointment(props) {
       )}
       {mode === SAVING && (
         <Status
-          message={'saving'}
+          message={'Saving'}
         />
       )}
       {mode === DELETING && (
         <Status
-          message={'deleting'}
+          message={'Deleting'}
         />
       )}
       {mode === CONFIRM && (
@@ -138,13 +136,13 @@ export default function Appointment(props) {
       )}
       {mode === ERROR_SAVE && (
         <Error
-          message={'Saving error!'}
+          message={'Error saving appointment'}
           onClose={() => {back(); back();}}
         />
       )}
       {mode === ERROR_DELETE && (
         <Error
-          message={'Deleting error!'}
+          message={'Error deleting appointment'}
           onClose={() => {back();}}
         />
       )}
