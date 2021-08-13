@@ -21,7 +21,7 @@ export default function DayListItem(props) {
    if (props.spots > 1) {
      return `${props.spots} spots remaining`;
    }
-  }
+  };
 
   // day-list__item component passes the onClick handler down to <li> element
   return (
@@ -34,4 +34,4 @@ export default function DayListItem(props) {
       <h3 className="text--light">{formatSpots()}</h3>
     </li>
   );
-}
+};

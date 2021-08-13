@@ -24,58 +24,27 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-  // async function save(name, interviewer) {
-  //   const interview = {
-  //     student: name,
-  //     interviewer
-  //   };
-  //   transition(SAVING);
-  //   let response = await props.bookInterview(props.id, interview)
-  //   .catch((error) => {transition(ERROR_SAVE)})
-  //   if (response) {
-  //     transition(SHOW);
-  //   }
-  // }
-
   function save(name, interviewer) {
     const interview = {
       student: name,
       interviewer
     };
-  
     transition(SAVING);
-  
     props
       .bookInterview(props.id, interview)
       .then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE, true));
-  }
+  };
 
   function remove(event) {
-    // transition(CONFIRM);
     transition(DELETING, true);
     props
      .cancelInterview(props.id)
-     .then(() => {
-       transition(EMPTY);
-      })
+     .then(() => transition(EMPTY))
      .catch(error => {
        transition(ERROR_DELETE, true)
      });
-  }
-  // async function remove(name, interviewer) {
-  //   const interview = {
-  //     student: name,
-  //     interviewer
-  //   };
-  //   transition(CONFIRM);
-  //   transition(DELETING);
-  //   let response = await props.cancelInterview(props.id, interview)
-  //   .catch((error) => {transition(ERROR_DELETE)})
-  //   if (response) {
-  //     transition(EMPTY);
-  //   }
-  // }
+  };
 
   return (
     <article className="appointment" data-testid="appointment" >

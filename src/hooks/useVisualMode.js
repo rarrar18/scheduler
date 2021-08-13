@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 
 export default function useVisualMode(initial) {
-  // set the mode state with the initial mode provided
-  // const [mode, setMode] = useState(initial);
   // set the mode to the second to last index of history
   const [history, setHistory] = useState([initial]);
 
-  //Create a function that will take in a new mode and update the mode state with the new value.
+  // take in a new mode and update the mode state with the new value
   function transition(mode, replace) {
     // setMode(mode);
     setHistory( prev =>
@@ -18,7 +16,7 @@ export default function useVisualMode(initial) {
         // returns the current mode, stays the same
       : [...prev, mode]
     )
-  }
+  };
 
   function back() {
     if (history.length < 2) {
@@ -26,8 +24,7 @@ export default function useVisualMode(initial) {
     }
     // prev is the latest history
     setHistory(prev => [...prev.slice(0, prev.length - 1)])
-  }
-
+  };
   //sets mode to the last item of the history array
   const mode = history[history.length-1];
   // return an object with a mode property, and transition

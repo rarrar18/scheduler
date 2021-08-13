@@ -31,7 +31,7 @@ export default function useApplicationData() {
     });
 
   }, [])
-  // The bookInterview action makes an HTTP request and updates the local state.
+  // This action makes an HTTP request and updates the local state.
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -53,8 +53,8 @@ export default function useApplicationData() {
         // once api call is completed we return true
         return true;
       })
-  }
-  // The cancelInterview action makes an HTTP request and updates the local state.
+  };
+  // This action makes an HTTP request and updates the local state.
   function cancelInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -75,8 +75,7 @@ export default function useApplicationData() {
         // once api call is completed we return true
         return res;
       })
-
-  }
+  };
 
   const updateSpots = function (dayName, days, appointments) {
     // get the day object
@@ -101,6 +100,5 @@ export default function useApplicationData() {
     const newDays = days.map(day => day.name === dayName ? newDay : day);
     return newDays;
   };
-
   return { state, setDay, bookInterview, cancelInterview }
-}
+};

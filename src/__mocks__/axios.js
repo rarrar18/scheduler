@@ -1,5 +1,3 @@
-//The Jest framework will replace any axios import with this mock module instead.
-
 const fixtures = {
   days: [
     {
@@ -95,5 +93,5 @@ export default {
       status: 204,
       statusText: "No Content"
     });
-})
-}
+  })
+};

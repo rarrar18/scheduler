@@ -7,7 +7,6 @@ export default function Form(props){
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   // tracks error state when input is invalid
   const [error, setError] = useState("");
-
   // clears the form values
   const reset = () => {
     setName('');
@@ -18,7 +17,6 @@ export default function Form(props){
     reset();
     props.onCancel();
   };
-
   // checks if input element is empty, shows error if it is
   function validate() {
     if (name === "") {
@@ -28,7 +26,7 @@ export default function Form(props){
     // clear the error on successful submission
     setError("");
     props.onSave(name, interviewer);
-  }
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
