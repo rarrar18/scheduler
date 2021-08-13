@@ -10,7 +10,7 @@ afterEach(cleanup);
 describe("Application", () => {
 
   // loads the application data and looks for text that is only available through the API
-  xit("defaults to Monday and changes the schedule when a new day is selected", () => {
+  it("defaults to Monday and changes the schedule when a new day is selected", () => {
     const { getByText } = render(<Application />);
     // argument passed is a function that returns a DOM node, in this case, looks for the text "Monday"
     return waitForElement(() => getByText("Monday")).then(() => {
@@ -19,7 +19,7 @@ describe("Application", () => {
     });
   });
 
-  xit("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
+  it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
     // render the Application, access debug fn returned by render fn
     const { container, debug } = render(<Application />);
 
@@ -59,7 +59,7 @@ describe("Application", () => {
 
   });
 
-  xit("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
+  it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     // 1. Render the Application.
     const { container } = render(<Application />);
   
@@ -93,7 +93,7 @@ describe("Application", () => {
   
   });
 
-  xit("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+  it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     // 1. Render the Application.
     const { container } = render(<Application />);
   
