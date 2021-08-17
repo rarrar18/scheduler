@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 export default function useApplicationData() {
@@ -46,7 +46,6 @@ export default function useApplicationData() {
     return axios.put(`http://localhost:8001/api/appointments/${id}`, appointment)
       //Promise does not resolve (should we use return keyword?)
       .then((res) => {
-        console.log(res);
         const days = updateSpots(state.day, state.days, appointments);
         // Changing the state refreshes with new values
         setState({ ...state, appointments, days });
@@ -68,7 +67,6 @@ export default function useApplicationData() {
     // Update the data in the persistent database
     return axios.delete(`http://localhost:8001/api/appointments/${id}`, appointment)
       .then((res) => {
-        console.log(res);
         const days = updateSpots(state.day, state.days, appointments);
         // Changing the state refreshes with new values
         setState({ ...state, appointments, days });
@@ -92,9 +90,6 @@ export default function useApplicationData() {
     // ensure updating an appt does not increase the number of spots
     // update spots in that day --> new day object
     const newDay = {...dayObj, spots};
-
-    // newDays.splice(index, 1, newDay);
-    // newDays [index] = newDay;
     
     // put the day back in the array --> new days array
     const newDays = days.map(day => day.name === dayName ? newDay : day);

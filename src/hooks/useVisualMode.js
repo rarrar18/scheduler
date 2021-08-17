@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function useVisualMode(initial) {
   // set the mode to the second to last index of history
